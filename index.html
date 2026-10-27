@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#159447">
+  <meta name="description" content="İlkokul öğrencileri için eğlenceli ve güvenli bahçe egzersizleri.">
+  <title>Bahçe Egzersizleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" aria-live="polite">
+    <section id="cover-screen" class="screen cover-screen active" aria-labelledby="cover-title">
+      <h1 id="cover-title" class="sr-only">İlkokul Öğrencileri İçin Bahçe Egzersizleri</h1>
+      <img class="cover-art" src="kapak.png" alt="Bahçe egzersizleri yapan neşeli aile">
+      <button id="start-btn" class="image-button" type="button" aria-label="Egzersizlere başla">
+        <img src="baslabtn.png" alt="Başla">
+      </button>
+    </section>
+
+    <section id="intro-screen" class="screen playground-screen" aria-labelledby="intro-title">
+      <div class="screen-inner intro-inner">
+        <div class="wood-sign compact"><h2 id="intro-title">AÇILIŞ VİDEOSU</h2></div>
+        <div class="video-shell intro-video-shell">
+          <video id="intro-video" src="giris.mp4" playsinline preload="metadata" aria-label="Bahçe egzersizleri açılış videosu"></video>
+          <button id="intro-play" class="video-overlay-button" type="button" aria-label="Açılış videosunu oynat">▶</button>
+          <p id="intro-error" class="media-error" role="alert" hidden>Video yüklenemedi. Hareketlere geçebilirsin.</p>
+        </div>
+        <div class="intro-actions">
+          <button id="intro-toggle" class="pill-button blue" type="button">▶ Oynat</button>
+          <button id="skip-intro" class="pill-button orange" type="button">Videoyu Atla <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="selection-screen" class="screen playground-screen" aria-labelledby="selection-title">
+      <div class="screen-inner selection-inner">
+        <header class="wood-sign selection-sign">
+          <h2 id="selection-title">HAREKETE HAZIR MISIN?</h2>
+          <p>Bir hareket seç ve spor yapmaya başla!</p>
+        </header>
+        <div id="exercise-grid" class="exercise-grid" aria-label="Egzersiz hareketleri"></div>
+        <p class="safety-strip"><span aria-hidden="true">★</span> Hareketleri yavaş ve kontrollü yap. Ağrı hissedersen dur.</p>
+      </div>
+    </section>
+
+    <section id="player-screen" class="screen playground-screen" aria-labelledby="exercise-title">
+      <div class="screen-inner player-inner">
+        <div class="player-layout">
+          <div class="player-main">
+            <div id="progress-sign" class="wood-sign mini-sign">Egzersiz 1 / 7</div>
+            <div class="video-shell exercise-video-shell">
+              <video id="exercise-video" playsinline preload="metadata" controls aria-label="Egzersiz videosu"></video>
+              <div class="video-recommendation-card" aria-label="Hareket önerisi">
+                <span class="video-recommendation-icon" aria-hidden="true">⏱</span>
+                <span class="video-recommendation-copy">
+                  <strong>HAREKET ÖNERİSİ</strong>
+                  <span id="video-recommendation-text">5 öne • 5 arkaya</span>
+                </span>
+              </div>
+              <p id="exercise-error" class="media-error" role="alert" hidden>Bu video yüklenemedi. Hareketler ekranından başka bir hareket seçebilirsin.</p>
+            </div>
+          </div>
+          <aside class="exercise-info">
+            <div class="exercise-heading">
+              <span id="exercise-number" class="number-badge">1</span>
+              <h2 id="exercise-title">Kol Açma ve Omuz Çevirme</h2>
+            </div>
+            <p id="exercise-description" class="description"></p>
+            <div class="recommendation"><span aria-hidden="true">⏱</span><div><strong>Öneri</strong><p id="exercise-recommendation"></p></div></div>
+            <div class="preview-frame"><img id="exercise-preview" alt="Seçili hareketin video önizlemesi"></div>
+            <p class="safety-note"><span aria-hidden="true">❤</span> Yavaş ve kontrollü yap. Ağrı hissedersen dur.</p>
+          </aside>
+        </div>
+        <nav class="player-actions" aria-label="Egzersiz kontrolleri">
+          <button id="back-to-movements" class="pill-button blue" type="button"><span aria-hidden="true">☰</span> Hareketler</button>
+          <button id="replay-exercise" class="pill-button orange" type="button"><span aria-hidden="true">↻</span> Tekrar İzle</button>
+          <button id="next-exercise" class="pill-button green" type="button">Sonraki <span aria-hidden="true">→</span></button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="finish-screen" class="screen playground-screen finish-screen" aria-labelledby="finish-title">
+      <div class="confetti" aria-hidden="true"></div>
+      <div class="finish-card">
+        <div class="celebration-stars" aria-hidden="true">★ ✦ ★</div>
+        <div class="wood-sign finish-sign"><h2 id="finish-title">TEBRİKLER!</h2></div>
+        <h3>TÜM HAREKETLERİ TAMAMLADIN!</h3>
+        <p>Harika iş çıkardın! Hareket etmek çok eğlenceli!</p>
+        <div class="finish-medal" aria-hidden="true">🏆</div>
+        <div class="finish-actions">
+          <button id="restart" class="pill-button orange" type="button">↻ Yeniden Başla</button>
+          <button id="see-movements" class="pill-button blue" type="button">☰ Hareketleri Gör</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <noscript>Bu uygulamayı kullanmak için tarayıcınızda JavaScript'i etkinleştirin.</noscript>
+  <script src="app.js"></script>
+</body>
+</html>
